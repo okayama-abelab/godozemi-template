@@ -1,5 +1,11 @@
 # 合同ゼミ（岡山大・広島市立大・広島経済大）発表資料のテンプレート
 
+## 注意
+
+これは pulic repository です．原稿執筆の際は Fork ではなく，
+[Releases](https://github.com/okayama-abelab/godozemi-template/releases)
+から最新版のアーカイブファイルを入手し，利用することをお勧めします．
+
 ## ディレクトリ
 
 + uptex/ ... upLaTeX/LuaLaTeX用のテンプレート
