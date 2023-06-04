@@ -23,7 +23,8 @@
 %% 余白指定
 %% bxjsclsが必須
 %%
-\setpagelayout*{top=15mm,bottom=15mm,inner=20mm,outer=20mm,columnsep=10mm}
+\setpagelayout*{top=15truemm,bottom=15truemm,inner=18truemm,outer=18truemm,
+                columnsep=10truemm}
 
 %
 % Sectionの文字の大きさ等の調整
@@ -61,16 +62,16 @@
 \newcommand{\jeheader}[6]%
 {{
 \twocolumn[%\hspace*{1.8cm}
-\begin{center}%\large%
+\setlength{\baselineskip}{12pt}\begin{center}%\large%
 % 題名
-{\large\bf #1}\\{#2}\\
-\vspace{0.2cm}%
+{\large\bf #1}\\{\small #2}\\
+\vspace{0.5em}%
 % 発表者
-{#3}\\{\small #4}\\
-\vspace{0.2cm}%
-{#5}\\{\small #6}
+{\bf #3}\\{\small #4}\\
+\vspace{0.5em}%
+{\bf #5}\\{\small #6}
 \end{center}%
-\vspace{0.4cm}
+\vspace{1em}
 ]%
 }}
 

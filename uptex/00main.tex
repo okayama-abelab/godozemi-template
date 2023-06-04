@@ -1,15 +1,14 @@
 %
-% 合同ゼミ資料 サンプル (2019年LuaTex版）
-% Modified: HARA, Sunao, Okayama University at 2019.7.1
+% 合同ゼミ資料 サンプル (2023年upLaTeX版）
 %
-\documentclass[autodetect-engine,dvi=dvipdfmx,ja=standard,
+\documentclass[autodetect-engine,dvi=dvipdfmx,ja=standard,plautopatch=true,
                a4,twoside,10pt]{bxjsarticle}
-
-\usepackage{godozemi2019}
+\usepackage{godozemi2023}
 
 %-----------------
 %     Preamble
 %-----------------
+\usepackage{graphicx}
 \usepackage[font=footnotesize]{subfig}
 
 \usepackage{enumerate}
@@ -23,8 +22,7 @@
 %\usepackage{showkeys} % ラベルを表示する
 
 %% 行間を調整するパラメータ。規定ページ内に収めるときの最終手段。
-\setlength{\baselineskip}{10pt}
-%\def\baselinestretch{0.91}
+\def\baselinestretch{0.95}
 
 
 %-----------------
@@ -33,12 +31,15 @@
 
 \begin{document}
 %---------------------------------------
-% タイトル
+% タイトル部
 \jeheader %
+%% 表題（和・英）
   {聴取者の主観評価に基づく音地図作成のための環境音収録}
   {Sound recording to construct sound-map on the basis of listener's subjective evaluation}
+%% 著者（和・英）
   {原 直}
   {Sunao Hara}
+%% 所属（和・英）
   {岡山大学 阿部研究室}
   {Abe Laboratory, Okayama University}
 %---------------------------------------
@@ -64,7 +65,7 @@ Participatory sensingとOpportunistic sensingというクラウドセンシン�
 従って環境音の研究を進めるためには聴取者の主観を伴った大規模な環境音データベースが必要である．
 
 大量のデータを集めるには
-ライフログ\cite{bibMesaros_EUSIPCO2010,bibShah_ESPA2012}や
+ライフログ\cite{Mesaros_EUSIPCO2010,Shah_ESPA2012}や
 クラウドソーシング\cite{Rana2010_IPSN_EarPhone,DHondt2012_Journal_NoiseTube}の
 アプローチが有効である．
 しかし，ライフログとしての環境音の収集は聴取者の主観を含んだデータが収集できるが，
@@ -98,13 +99,11 @@ Participatory sensingとOpportunistic sensingというクラウドセンシン�
 
 音声は量子化ビット数16~bit，サンプリングレート32000~Hzで収録が行われる．
 1秒毎に得られる音声サンプル $x[n], n=1,\dots,N$に対してA特性$A[k]$に基づく等価騒音レベル$L_{eq}$ を以下の計算式で計算する．
-%
 \begin{align}
     X[k] &= \frac{1}{N} \sum_{n=0}^{N-1} x[n] \cdot e^{-2 \pi j k n/N} \\[-3pt]
 	L_0 &= 10 \log_{10} \frac{1}{K} \sum_{k=0}^{K-1} \Bigl| A[k] \cdot X[k] \Bigr|^2 \\[-3pt]
 	L_{eq} &= B(L_0)
 \end{align}
-%
 ここで，$N$は計算に用いる信号長であり，$K$はFFT長（$K>N$）であり，
 $B(\cdot)$は量子化された音声波形のパワーを音圧レベル値に変換する関数である．
 本報告では1秒間に相当する$N=32000$を利用し，
@@ -156,7 +155,7 @@ $C_5$: 混雑，
 \centering
 	\caption{収録された環境音の出現頻度分布}
 	\label{tbl:SoundTypeHistogram}
-%\resizebox{\columnwidth}{!}{%
+\resizebox{\columnwidth}{!}{%
 	\begin{tabular}{llr|llr}
 	\Hline
 	\multicolumn{2}{l}{Class} & \#data & \multicolumn{2}{l}{Class} & \#data \\
@@ -169,7 +168,7 @@ $C_5$: 混雑，
 	$T_6$ & バイクの音  &  727 & $T_{12}$ & 動物の声 &    61 \\
 	\Hline
 	\end{tabular}
-%} % resizebox
+} % resizebox
 \end{table}
 %-------------------  TABLE  END  -------------------%
 
@@ -234,12 +233,12 @@ $C_5$: 混雑，
  \setlength\itemsep{4pt}    % アイテム間の大きさ
  \setlength\baselineskip{11.5pt} % アイテム内の行間の大きさ
 
-\bibitem{bibMesaros_EUSIPCO2010}
+\bibitem{Mesaros_EUSIPCO2010}
   A.~Mesaros, \textit{et~al.},
   ``Acoustic event detection in real life recordings,''
   Proc. of 18th European Signal Processing Conference (EUSIPCO-2010), pp.~1267--1271, Aug. 2010.
 
-\bibitem{bibShah_ESPA2012}
+\bibitem{Shah_ESPA2012}
   M.~Shah, \textit{et~al.},
   ``Lifelogging: Archival and retrieval of continuously recorded audio using wearable devices,''
   Proc. of IEEE International Conference on Emerging Signal Processing Applications (ESPA-2012), pp.~99--102, Jan. 2012.
@@ -254,7 +253,7 @@ $C_5$: 混雑，
   ``Participatory noise mapping works! an evaluation of participatory sensing as an alternative to standard techniques for environmental monitoring,''
   Pervasive and Mobile Computing, vol.~9, no.~5, pp.~681--694, Oct. 2013.
 
-\bibitem{bibHTKBook}
+\bibitem{HTKBook}
   ``The {HTK} {Book},'' \url{http://htk.eng.cam.ac.uk/}.
 
 \bibitem{Hara2014_ASJ1409}
