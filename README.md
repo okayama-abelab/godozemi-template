@@ -2,37 +2,36 @@
 
 ## ディレクトリ
 
-+ ptex-utf8/ ... pLaTeX用のテンプレート
-+ luatex/    ... LuaLaTeX用のテンプレート
-+ word/      ... Word 2016用のテンプレート
-　　　　　　　　（Wordテンプレートには，表・画像を入れていません．）
++ uptex/ ... upLaTeX/LuaLaTeX用のテンプレート
++ word/  ... Word 2016用のテンプレート
+　　　　  　（Wordテンプレートには，表・画像を入れていません．）
 
-## pLaTeX版のコンパイル
+## upLaTeX / LuaLaTeX 版のコンパイル
 
 ```
-platex 00main.tex
-platex 00main.tex
+uplatex 00main.tex
+uplatex 00main.tex
 dvipdfmx 00main
 ```
 
 または，
 
 ```
-ptex2pdf -l 00main.tex
-ptex2pdf -l 00main.tex
+ptex2pdf -u -l 00main.tex
+ptex2pdf -u -l 00main.tex
 ```
 
-## LuaTex版のコンパイル
+または，
 
 ```
-luatex 00main.tex
-luatex 00main.tex
+lualatex 00main.tex
+lualatex 00main.tex
 ```
 
 
-## pLaTeX/LuaTex用のマクロ
+## upLaTeX/LuaLaTex用のマクロ
 
-詳しくは，gotozemi2019.styの末尾をご覧ください．
+詳しくは，[gotozemi2023.sty](uptex/godozemi2023.sty)の末尾をご覧ください．
 
 ```
 %% 数学記号

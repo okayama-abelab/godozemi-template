@@ -1,0 +1,10 @@
+# Common LaTeX auxiliay files
+*.aux
+*.dvi
+*.log
+*.fls
+*.synctex.gz
+
+# latexmk
+*.fdb_latexmk
+out/*

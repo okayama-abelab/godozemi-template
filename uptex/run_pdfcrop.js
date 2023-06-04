@@ -2,7 +2,7 @@
  Settings
 */
 var cmd_pdfcrop = "pdfcrop --gscmd gswin32c --pdfversion 1.4";
-var target_dir  = "img2";
+var target_dir  = "img";
 
 var objShell = new ActiveXObject("WScript.Shell")
 var objFSO = new ActiveXObject("Scripting.FileSystemObject");
