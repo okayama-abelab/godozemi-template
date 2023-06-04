@@ -1,0 +1,111 @@
+%
+% 合同ゼミ用スタイルファイル
+%
+%    2019-07-01 by HARA, Sunao
+%
+\typeout{Document Style `godozemi2019' <01 Jul 2019>.}
+\typeout{Document Style `godozemi2015' <15 Jun 2015>.}
+
+%
+% 余白指定
+%
+\baselineskip 12.5pt
+\textheight 58\baselineskip
+
+%% 上余白
+\voffset 5truemm \addtolength{\voffset}{-1in} % 1 in. = 自動で確保されている余白
+\topmargin 0truemm
+\headheight 10truemm
+\headsep 5truemm
+
+% 横余白
+\textwidth \paperwidth
+\addtolength{\textwidth}{-40truemm} % 左余白+右余白+とじしろ
+\hoffset 20truemm \addtolength{\hoffset}{-1truein} % 1 in. = 自動で確保されている余白
+\oddsidemargin 5truemm % for \twoside
+\evensidemargin -\oddsidemargin % for \twoside
+
+\columnsep 10truemm
+
+%
+% Sectionの文字の大きさ等の調整
+%
+\def\section{\@startsection{section}{1}
+	{\z@}{1.0ex plus 0.2ex minus .2ex}{0.5ex plus .1ex}
+	{\large\bf}}
+\def\subsection{\@startsection{subsection}{2}
+	{\z@}{1.0ex plus 0.2ex minus .2ex}{0.5ex plus .1ex}
+	{\normalsize\bf}}
+\def\subsubsection{\@startsection{subsubsection}{3}
+	{\z@}{1.0ex plus 0.5ex minus .2ex}{0.5ex plus .1ex}
+	{\normalsize\bf}}
+\def\paragraph{\@startsection{paragraph}{4}
+	{\z@}{1.0ex plus 0.2ex minus .2ex}{-1em}
+	{\normalsize\bf}}
+\def\subparagraph{\@startsection{subparagraph}{4}
+	{\parindent}{1.0ex plus 0.2ex minus .2ex}{-1em}
+	{\normalsize\bf}}
+
+
+%
+% ページ番号の書式
+%
+\pagestyle{empty}
+
+%
+%  和文ヘッダ・英文フッタ（題名、発表者など)
+%
+%    使用法： \jeheader{和文題名}{英文題名}
+%                      {和文発表者}{英文発表者}
+%                      {和文所属}{英文所属}
+%
+%
+\newcommand{\jeheader}[6]%
+{{
+\twocolumn[%\hspace*{1.8cm}
+\begin{center}%\large%
+% 題名
+{\large\bf #1}\\{#2}\\
+\vspace{0.2cm}%
+% 発表者
+{#3}\\{\small #4}\\
+\vspace{0.2cm}%
+{#5}\\{\small #6}
+\end{center}%
+\vspace{0.4cm}
+]%
+}}
+
+%
+% 　概要表示用マクロ
+%
+\renewcommand{\abstract}[1]{\noindent\textbf{概要} {#1}\\}
+
+%
+% 草稿用マクロ
+%   草稿の時のみ使うものをかく
+%
+\newcommand{\IsDraft}[0]%
+{
+\pagestyle{myheadings}
+\markright{作成日付：\the\year 年\the\month 月\the\day 日\the\hour 時\the\minute 分}
+}
+
+%
+% よく使うマクロ
+%
+%% 数学記号
+\newcommand{\argmax}{\mathop{\rm argmax}\limits}
+\newcommand{\argmin}{\mathop{\rm argmin}\limits}
+\newcommand{\Vec}[1]{\mbox{\boldmath $#1$}}
+
+%% 単位用(単位はイタリックではない)
+\newcommand{\unit}[1]{\hspace{0.5em}[{\rm #1}]}
+
+%% 図・表・式の参照
+\newcommand{\figref}[1]{図~\ref{#1}}
+\newcommand{\tabref}[1]{表~\ref{#1}}
+\newcommand{\eqnref}[1]{式~(\ref{#1})}
+
+%% 表の上下で使う太い横線
+\def\Hline{\noalign{\hrule height 0.4mm}}
